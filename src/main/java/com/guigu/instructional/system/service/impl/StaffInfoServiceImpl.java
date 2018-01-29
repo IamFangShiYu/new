@@ -72,6 +72,9 @@ public class StaffInfoServiceImpl implements StaffInfoService {
             }
             
         }
+//        else{
+//        	return staffInfoMapper.selectByExample(null);
+//        		}
         criteria.andStaffStateEqualTo("1");
        
         

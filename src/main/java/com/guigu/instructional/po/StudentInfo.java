@@ -3,7 +3,20 @@ package com.guigu.instructional.po;
 import java.util.Date;
 
 public class StudentInfo {
-    private Integer studentId;
+    @Override
+	public String toString() {
+		return "StudentInfo [studentId=" + studentId + ", staffId=" + staffId + ", classId=" + classId
+				+ ", studentName=" + studentName + ", studentSex=" + studentSex + ", studentAge=" + studentAge
+				+ ", studentTellphone=" + studentTellphone + ", studentEmail=" + studentEmail + ", studentIdcard="
+				+ studentIdcard + ", studentAddress=" + studentAddress + ", studentBirthday=" + studentBirthday
+				+ ", studentSchool=" + studentSchool + ", studentQq=" + studentQq + ", studentParentsName="
+				+ studentParentsName + ", studentParentsPhone=" + studentParentsPhone + ", studentPro=" + studentPro
+				+ ", studentProCity=" + studentProCity + ", studentType=" + studentType + ", studentIspay="
+				+ studentIspay + ", studentState=" + studentState + ", studentMark=" + studentMark + ", studentDesc="
+				+ studentDesc + ", studentNumber=" + studentNumber + ", studentPassword=" + studentPassword + "]";
+	}
+
+	private Integer studentId;
 
     private Integer staffId;
 

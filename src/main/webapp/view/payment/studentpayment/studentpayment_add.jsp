@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,9 +18,6 @@
         <li>添加账单</li>
     </ul>
 </div>
-
-
-
 
 <form action="${pageContext.request.contextPath}/payment/studentpayment/add.action" class="form-horizontal">
    	<div class="row">
@@ -40,14 +38,18 @@
             </div>       
         </div>
         <div class="col-sm-5">
-            <div class="form-group">
-            	<select class="form-control input-sm" name="roleId" >
-                        	<option>选择学生姓名</option>
-                        	<c:forEach items="${studentlist }" var="student">
-                            	<option value="${student.studentId}"  }>${student.studentName}</option>
-                            </c:forEach>
-                        </select>
-        </div>
+				<label class="col-sm-3 control-label">缴费学员</label>
+				<div class="form-group">
+					<div class="col-sm-5">
+						<select class="form-control input-sm" name="studentId">
+							<option>请选择</option>
+							<c:forEach items="${studentlist}" var="stu">
+								<option value="${stu.studentId}" }>${stu.studentName}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+			</div>
 
     </div>
     <!-- 开始2 -->
@@ -84,15 +86,18 @@
                 </div>
             </div>
         </div>        
+        
+        <div class="form-group">
         <div class="col-sm-5">
-            
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">缴费日期</label>
-                <div class="col-sm-9">
-                	<input type="text" name="paymentTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入缴费日期"/>
-                </div>
-            </div>
-        </div>
+					<label class="col-sm-3 control-label">缴费日期</label>
+					<div class="col-sm-5">
+						<input type="text" name="paymentTime"
+							onclick="WdatePicker()" readonly="readonly"
+							class="form-control input-sm" placeholder="请输入缴费日期" />
+
+					</div>
+				</div>
+				</div>
     </div>
     <!-- 结束3 -->   
     

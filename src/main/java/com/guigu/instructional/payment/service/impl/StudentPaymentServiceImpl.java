@@ -108,7 +108,12 @@ public class StudentPaymentServiceImpl implements StudentPaymentService {
 	@Override
 	public List<StudentPaymentCustom> findStudentPaymentList(StudentPaymentCustom studentPaymentCustom)
 			throws Exception {
-		return studentPaymentCustomMapper.findStudentPaymentList(studentPaymentCustom);
+		if(studentPaymentCustom==null) {
+			return studentPaymentCustomMapper.findStudentPaymentList(null);
+		}else {
+			return studentPaymentCustomMapper.findStudentPaymentList(studentPaymentCustom);
+		}
+		
 	}
 
 }

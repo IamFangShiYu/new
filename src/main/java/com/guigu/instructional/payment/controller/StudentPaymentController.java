@@ -15,6 +15,7 @@ import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.po.StudentPaymentCustom;
 import com.guigu.instructional.student.service.StudentInfoService;
+import com.guigu.instructional.system.service.StaffInfoService;
 
 @Controller
 @RequestMapping("/payment/studentpayment/")
@@ -24,12 +25,14 @@ public class StudentPaymentController {
 	@Resource(name="studentInfoServiceImpl")
 	private StudentInfoService  studentInfoService;
 	
+	@Resource(name="staffInfoServiceImpl")
+	private StaffInfoService staffInfoService;
 	
 	@RequestMapping("loadchange.action")
     public String StudentInfo(Integer studentId,Model model) {
 		StudentInfo studentInfo =studentInfoService.getStudentInfo(studentId);
         model.addAttribute("studentInfo", studentInfo);
-        //²éÑ¯ËùÓÐµÄ½ÇÉ«
+        //ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ÐµÄ½ï¿½É«
         List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
         model.addAttribute("studentlist", list);
         return "system/roleinfo/role_change";
@@ -42,6 +45,8 @@ public class StudentPaymentController {
 	   @RequestMapping("add.action")
 	    public String addStudentPayment(StudentPayment studentPayment,Model model) throws Exception {
 	       
+		   System.out.println("523423");
+		   System.out.println(studentPayment);
 	       boolean result= studentPaymentService.addStudentPayment(studentPayment);
 	       if(result) {
 	           model.addAttribute("info","-AddSuccess");
@@ -83,19 +88,32 @@ public class StudentPaymentController {
 	   
 	   @RequestMapping("load.action")
 	    public String loadUpate(Integer paymentId,Model model) {
-	       StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
-	        model.addAttribute("studentPayment", studentPayment);
-	        
-	        StudentInfo studentInfo =studentInfoService.getStudentInfo(1);
-	        model.addAttribute("studentInfo", studentInfo);
-	        
+	      
 	        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
 	        model.addAttribute("studentlist", list);
 	        
-	        System.out.println(list);
-	        System.out.println(studentInfo);
+	        StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
+	        model.addAttribute("studentPayment", studentPayment);
+	        
+//	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(null);
+//	        model.addAttribute("stafflist", list2);
 	        
 	        return "payment/studentpayment/studentpayment_update";
+	    }
+	   
+	   @RequestMapping("addload.action")
+	    public String addloadUpate(Integer paymentId,Model model) {
+	      
+	        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+	        model.addAttribute("studentlist", list);
+	        
+	        StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
+	        model.addAttribute("studentPayment", studentPayment);
+	        
+//	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(null);
+//	        model.addAttribute("stafflist", list2);
+	       
+	        return "payment/studentpayment/studentpayment_add";
 	    }
 	   
 	   @RequestMapping("list.action")
@@ -104,13 +122,13 @@ public class StudentPaymentController {
 	        
 	        for (StudentPaymentCustom studentPaymentCustom2 : list) {
 	        	if(studentPaymentCustom2.getPaymentMenthod()==1) {
-	        		studentPaymentCustom2.setStateName("ÏÖ½ð");
+	        		studentPaymentCustom2.setStateName("ï¿½Ö½ï¿½");
 		        }
 		        if(studentPaymentCustom2.getPaymentMenthod()==2) {
-		        	studentPaymentCustom2.setStateName("ÍøÒø");
+		        	studentPaymentCustom2.setStateName("ï¿½ï¿½ï¿½ï¿½");
 		        }
 		        if(studentPaymentCustom2.getPaymentMenthod()==3) {
-		        	studentPaymentCustom2.setStateName("Ö§¸¶±¦");
+		        	studentPaymentCustom2.setStateName("Ö§ï¿½ï¿½ï¿½ï¿½");
 		        }
 			}
 	       

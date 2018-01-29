@@ -41,7 +41,10 @@
     	<input type="text"  id="keyword"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/payment/studentpayment/studentpayment_add.jsp'"/>
+ 	<a href="${pageContext.request.contextPath }/payment/studentpayment/addload.action" paramId="paymentId" paramProperty="paymentId" > 
+    <input type="button"   class="btn btn-success"   value="添加" />
+    </a> 
+ 
  </form>
 </div>
 

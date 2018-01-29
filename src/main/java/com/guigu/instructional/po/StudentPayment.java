@@ -29,7 +29,16 @@ public class StudentPayment {
         return paymentId;
     }
 
-    public void setPaymentId(Integer paymentId) {
+    @Override
+	public String toString() {
+		return "StudentPayment [paymentId=" + paymentId + ", studentId=" + studentId + ", staffId=" + staffId
+				+ ", paymentSitutation=" + paymentSitutation + ", paymentMenthod=" + paymentMenthod + ", paymentTime="
+				+ paymentTime + ", paymentDiscountAmount=" + paymentDiscountAmount + ", paymentShouldAmount="
+				+ paymentShouldAmount + ", paymentRealAmount=" + paymentRealAmount + ", paymentDebtAmount="
+				+ paymentDebtAmount + ", paymentRemark=" + paymentRemark + "]";
+	}
+
+	public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
     }
 

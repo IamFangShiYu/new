@@ -69,10 +69,13 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 				criteria.andStudentTellphoneEqualTo(studentInfo.getStudentTellphone());
 			}
 		}
+		else {
+			return studentInfoMapper.selectByExample(null);
+		}
 		/*
-		 * ²éÑ¯ËùÓÐÕý³£µÄÑ§Ô±µÄÊý¾Ý
-		 * 1£ºÕý³£ 
-		 * 0£ºÉ¾³ý
+		 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		 * 0ï¿½ï¿½É¾ï¿½ï¿½
 		 */
 		criteria.andStudentStateEqualTo(1);
 		
