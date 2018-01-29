@@ -24,9 +24,9 @@
 <form action="" class="form-horizontal">
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="${pageContext.request.contextPath }/system/staffinfo/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
-        	<a href="${pageContext.request.contextPath }/system/staffinfo/delete.action?staffId=${staffInfo.staffId}" class="btn btn-success" >删除</a>
-        	<a href="${pageContext.request.contextPath }/system/staffinfo/teacherlist.action" class="btn btn-waring" >返回上一级</a>
+        	<a href="${pageContext.request.contextPath }/system/staffteacher/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
+        	<a href="${pageContext.request.contextPath }/system/staffteacher/delete.action?staffId=${staffInfo.staffId}" class="btn btn-success" >删除</a>
+        	<a href="${pageContext.request.contextPath }/system/staffteacher/teacherlist.action" class="btn btn-waring" >返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -221,9 +221,9 @@
     </div>
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          <a href="${pageContext.request.contextPath }/system/staffinfo/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
-        	<a href="${pageContext.request.contextPath }/system/staffinfo/delete.action?staffId=${staffInfo.staffId}" class="btn btn-success" >删除</a>
-        	<a href="${pageContext.request.contextPath }/system/staffinfo/teacherlist.action" class="btn btn-waring" >返回上一级</a>
+          <a href="${pageContext.request.contextPath }/system/staffteacher/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
+        	<a href="${pageContext.request.contextPath }/system/staffteacher/delete.action?staffId=${staffInfo.staffId}" class="btn btn-success" >删除</a>
+        	<a href="${pageContext.request.contextPath }/system/staffteacher/teacherlist.action" class="btn btn-waring" >返回上一级</a>
         </div>
     </div>
 </form>

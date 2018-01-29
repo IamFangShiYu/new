@@ -31,6 +31,8 @@
     	<select class="form-control  input-sm" onchange="query(this)" name="condition">
         	<option value="">请选择</option>
         	<option value="paymentId">账单编号</option>
+        	<option value="studentName">学生姓名</option>
+        	<option value="staffName">经办人姓名</option>
             <option value="studentId">学生编号</option>
             <option value="staffId">经办人编号</option>
         </select>

@@ -40,10 +40,18 @@
 		<if test="staffId!=null and staffId!=''">
 			and payment.staff_id like '%${staffId}%'
 		</if>
+		<if test="staffName!=null and staffName!=''">
+			and staff.staff_name like '%${staffName}%'
+		</if>
+		<if test="studentName!=null and studentName!=''">
+			and student.student_name like '%${studentName}%'
+		</if>
+		
+		
 
 	</sql>
 
-	<select id="findStudentPaymentList" parameterType="com.guigu.instructional.po.StudentPayment"
+	<select id="findStudentPaymentList" parameterType="com.guigu.instructional.po.StudentPaymentCustom"
 		resultMap="BaseResultMap">
 		select payment.*,staff.staff_name,student.student_name 
 		from

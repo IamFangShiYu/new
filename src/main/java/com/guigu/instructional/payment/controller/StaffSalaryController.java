@@ -71,8 +71,8 @@ public class StaffSalaryController {
 	    }
 	   
 	   @RequestMapping("list.action")
-	    public String list(StaffSalary staffSalary,Model model) throws Exception {
-	        List<StaffSalaryCustom> list =staffSalaryService.findStaffSalaryList(staffSalary);
+	    public String list(StaffSalaryCustom staffSalaryCustom,Model model) throws Exception {
+	        List<StaffSalaryCustom> list =staffSalaryService.findStaffSalaryList(staffSalaryCustom);
 	        model.addAttribute("list", list);
 	        
 	        return "payment/staffsalary/staffsalary_list";

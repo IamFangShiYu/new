@@ -21,7 +21,7 @@ public interface StudentPaymentService {
 	    
 	    public boolean deleteStudentPayment(Integer paymentId);
 	    
-	    public List<StudentPaymentCustom> findStudentPaymentList(StudentPayment studentPayment)throws Exception;
+	    public List<StudentPaymentCustom> findStudentPaymentList(StudentPaymentCustom studentPaymentCustom)throws Exception;
 	    
 	}
 	

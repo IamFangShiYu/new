@@ -71,8 +71,8 @@ public class StudentPaymentController {
 	    }
 	   
 	   @RequestMapping("list.action")
-	    public String list(StudentPayment studentPayment,Model model) throws Exception {
-	        List<StudentPaymentCustom> list =studentPaymentService.findStudentPaymentList(studentPayment);
+	    public String list(StudentPaymentCustom studentPaymentCustom,Model model) throws Exception {
+	        List<StudentPaymentCustom> list =studentPaymentService.findStudentPaymentList(studentPaymentCustom);
 	        model.addAttribute("list", list);
 	        
 	        return "payment/studentpayment/studentpayment_list";

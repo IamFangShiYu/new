@@ -28,7 +28,7 @@
 		select *
 		from
 		staff_info 
-		where role_id=3
+		where role_id=3 and staff_state=1
 	</select>
 	
 </mapper>

@@ -36,10 +36,16 @@
 		 	<if test="staStaffId!=null and staStaffId!=''">
 		 		and salary.sta_staff_id like '%${staStaffId}%'
 		 	</if>
+		 	<if test="staStaffName!=null and staStaffName!=''">
+		 		and stastaff.staff_name like '%${staStaffName}%'
+		 	</if>
+		 	<if test="staffName!=null and staffName!=''">
+		 		and staff.staff_name like '%${staffName}%'
+		 	</if>
 
 	</sql>
 
-	<select id="findStaffSalaryList" parameterType="com.guigu.instructional.po.StaffSalary"
+	<select id="findStaffSalaryList" parameterType="com.guigu.instructional.po.StaffSalaryCustom"
 		resultMap="BaseResultMap">
 		select
 		salary.*,staff.staff_name,stastaff.staff_name stastaff_name

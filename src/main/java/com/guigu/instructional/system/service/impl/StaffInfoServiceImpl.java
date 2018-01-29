@@ -25,9 +25,7 @@ public class StaffInfoServiceImpl implements StaffInfoService {
     private StaffInfoMapper staffInfoMapper;
     
     
-    @Resource(name = "staffTeachersMapper")
-    private StaffTeachersMapper staffTeachersMapper;
-    
+   
     @Override
     public boolean addStaff(StaffInfo staffInfo) {
         try {
@@ -86,10 +84,6 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         return staffInfoMapper.selectByPrimaryKey(staffId);
     }
 
-	@Override
-	public List<StaffTeachers> findStaffTeachers(StaffInfo staffInfo) throws Exception {
-		
-		return staffTeachersMapper.findStaffTeachers(staffInfo);
-	}
+	
 
 }

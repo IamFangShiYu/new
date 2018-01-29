@@ -33,6 +33,8 @@
         	<option value="staffSalaryId">账单编号</option>
             <option value="staffId">领取人编号</option>
             <option value="staStaffId">财务人员编号</option>
+           <option value="staffName">领取人姓名</option>
+            <option value="staStaffName">财务人员姓名</option>
         </select>
     </div>
     

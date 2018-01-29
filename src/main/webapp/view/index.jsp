@@ -135,7 +135,7 @@
 									class="icon-double-angle-right"></i> 权限管理	</a></li> 
                          <li><a href="view/system/anthotychange/anthorty_changelist.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 权限变更</a></li>  
-   						 <li><a href="view/system/datadictionary/datadictionary_list.html" target="mainframe"> <i
+   						 <li><a href="${pageContext.request.contextPath }/view/system/datadictionary/datadictionary_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 数据字典</a></li>                                                    
 						</ul>
 				</li>
@@ -198,7 +198,7 @@
                              <li><a href="view/classinfo/syllabusinfo/syllabusinfo_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 课程表
 							</a></li>   
-                            <li><a href="${pageContext.request.contextPath }/system/staffinfo/teacherlist.action" target="mainframe">  <i
+                            <li><a href="${pageContext.request.contextPath }/system/staffteacher/teacherlist.action" target="mainframe">  <i
 									class="icon-double-angle-right"></i> 教师管理
 							</a></li>    
                             <li><a href="view/classinfo/classinfo/classinfo_list.html" target="mainframe"> <i

@@ -24,6 +24,6 @@ public interface StaffSalaryService {
     
     public boolean deleteStaffSalary(Integer staffSalaryId);
     
-    public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary)throws Exception;
+    public List<StaffSalaryCustom> findStaffSalaryList(StaffSalaryCustom staffSalaryCustom)throws Exception;
 	
 }

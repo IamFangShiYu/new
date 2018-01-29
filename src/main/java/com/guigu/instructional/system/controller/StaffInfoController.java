@@ -22,16 +22,16 @@ import com.guigu.instructional.system.service.StaffInfoService;
  * package_name:com.guigu.instructional.system.controller.StaffInfoController
  * </p>
  * <p>
- * description��
+ * description锟斤拷
  * </p>
  * <p>
- * @author������ʦ
+ * @author锟斤拷锟斤拷锟斤拷师
  * <p>
  * <p>
- * date:2018��1��26������9:15:58
+ * date:2018锟斤拷1锟斤拷26锟斤拷锟斤拷锟斤拷9:15:58
  * </p>
  * <p>
- * comments��
+ * comments锟斤拷
  * </p>
  * <p>
  * @version jdk1.8
@@ -53,9 +53,9 @@ public class StaffInfoController {
 		staffInfo.setStaffState("1");
 		boolean result = staffInfoService.addStaff(staffInfo);
 		if (result) {
-			model.addAttribute("info", "��ӳɹ�");
+			model.addAttribute("info", "锟斤拷映晒锟�");
 		} else {
-			model.addAttribute("info", "���ʧ��");
+			model.addAttribute("info", "锟斤拷锟绞э拷锟�");
 		}
 		return this.list(null, model);
 
@@ -68,12 +68,7 @@ public class StaffInfoController {
 		return "system/staffinfo/staffinfo_list";
 	}
 
-	@RequestMapping("teacherlist.action")
-	public String teacherlist(StaffInfo staffInfo, Model model) throws Exception {
-		List<StaffTeachers> list = staffInfoService.findStaffTeachers(staffInfo);
-		model.addAttribute("list", list);
-		return "classinfo/teacher/teacher_list";
-	}
+	
 
 	@RequestMapping("show.action")
 	public String showStaffInfo(Integer staffId, Model model) {
@@ -90,20 +85,14 @@ public class StaffInfoController {
 		return "system/staffinfo/staffinfo_update";
 	}
 	
-	@RequestMapping("teacherload.action")
-	public String teacherloadUpate(Integer staffId, Model model) {
-		StaffInfo staffInfo = staffInfoService.getStaffInfo(staffId);
-		model.addAttribute("staffInfo", staffInfo);
-		return "classinfo/teacher/teacher_update";
-	}
 
 	@RequestMapping("update.action")
 	public String updateStaffInfo(StaffInfo staffInfo, Model model) {
 		boolean result = staffInfoService.updateStaff(staffInfo);
 		if (result) {
-			model.addAttribute("info", "�޸ĳɹ�");
+			model.addAttribute("info", "锟睫改成癸拷");
 		} else {
-			model.addAttribute("info", "�޸�ʧ��");
+			model.addAttribute("info", "锟睫革拷失锟斤拷");
 		}
 		return this.list(null, model);
 	}
@@ -111,14 +100,14 @@ public class StaffInfoController {
 	@RequestMapping("delete.action")
 	public String deleteStaffInfo(StaffInfo staffInfo, Model model) {
 
-		// ����Ա��Ϊ 0 ������Ч
+		// 锟斤拷锟斤拷员锟斤拷为 0 锟斤拷锟斤拷锟斤拷效
 		staffInfo.setStaffState("0");
 
 		boolean result = staffInfoService.updateStaff(staffInfo);
 		if (result) {
-			model.addAttribute("info", "ɾ���ɹ�");
+			model.addAttribute("info", "删锟斤拷锟缴癸拷");
 		} else {
-			model.addAttribute("info", "ɾ��ʧ��");
+			model.addAttribute("info", "删锟斤拷失锟斤拷");
 		}
 		return this.list(null, model);
 	}

@@ -94,13 +94,11 @@ public class StaffSalaryServiceImpl implements StaffSalaryService {
 		return false;
 	}
 
+
+
 	@Override
-	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary) throws Exception {
-		
-			
-		return staffSalaryCustomMapper.findStaffSalaryList(staffSalary);
-		
-		
+	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalaryCustom staffSalaryCustom) throws Exception {
+		return staffSalaryCustomMapper.findStaffSalaryList(staffSalaryCustom);
 	}
 
 }

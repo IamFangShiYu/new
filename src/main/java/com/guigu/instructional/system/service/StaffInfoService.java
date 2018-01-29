@@ -8,10 +8,10 @@ import com.guigu.instructional.po.StaffTeachers;
 /**       
  * <p>project_name:InstructionalManagement</p>
  * <p>package_name:com.guigu.instructional.system.service.StaffInfoService</p>
- * <p>description��</p>
- * <p>@author������ʦ<p>   
- * <p> date:2018��1��26������8:55:29 </p>
- * <p>comments��    </p>
+ * <p>description锟斤拷</p>
+ * <p>@author锟斤拷锟斤拷锟斤拷师<p>   
+ * <p> date:2018锟斤拷1锟斤拷26锟斤拷锟斤拷锟斤拷8:55:29 </p>
+ * <p>comments锟斤拷    </p>
  * <p>@version  jdk1.8</p>
  * 
  * <p>Copyright (c) 2018, 980991634@qq.com All Rights Reserved. </p>    
@@ -20,8 +20,8 @@ import com.guigu.instructional.po.StaffTeachers;
 public interface StaffInfoService {
     
     /**
-     * addStaff:���Ա����Ϣ
-     * @author ����ʦ
+     * addStaff:锟斤拷锟皆憋拷锟斤拷锟较�
+     * @author 锟斤拷锟斤拷师
      * @param staffInfo
      * @return  <br/> 
      * @since JDK 1.8
@@ -29,8 +29,8 @@ public interface StaffInfoService {
     public boolean addStaff(StaffInfo staffInfo);
     
     /**
-     * updateStaff:����Ա������
-     * @author ����ʦ
+     * updateStaff:锟斤拷锟斤拷员锟斤拷锟斤拷锟斤拷
+     * @author 锟斤拷锟斤拷师
      * @param staffInfo
      * @return  <br/>
      * @since JDK 1.8
@@ -38,8 +38,8 @@ public interface StaffInfoService {
     public boolean updateStaff(StaffInfo staffInfo);
     
     /**
-     * getStaffInfo:����������ѯԱ����Ϣ
-     * @author ����ʦ
+     * getStaffInfo:锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷询员锟斤拷锟斤拷息
+     * @author 锟斤拷锟斤拷师
      * @param staffInfo
      * @return  <br/>
      * @since JDK 1.8
@@ -48,15 +48,16 @@ public interface StaffInfoService {
     
     
     /**
-     * getStaffInfo:����Ա����Ų�ѯԱ����Ϣ
-     * @author ����ʦ
+     * getStaffInfo:锟斤拷锟斤拷员锟斤拷锟斤拷挪锟窖憋拷锟斤拷锟较�
+     * @author 锟斤拷锟斤拷师
      * @param staffId
      * @return  <br/>
      * @since JDK 1.8
      */
     public StaffInfo getStaffInfo(Integer staffId);
     
-    public List<StaffTeachers> findStaffTeachers(StaffInfo staffInfo)throws Exception;
+  
+
 }
 
 
