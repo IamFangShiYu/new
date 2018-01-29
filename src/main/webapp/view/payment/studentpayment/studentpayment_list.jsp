@@ -64,7 +64,7 @@
     	<display:column property="studentName" title="学生编号" ></display:column>
     	<display:column property="staffName" title="经办人" href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
     	<display:column property="paymentSitutation" title="缴费情况"></display:column>
-    	<display:column property="paymentMenthod" title="缴费方式"></display:column>
+    	<display:column property="stateName" title="缴费方式"></display:column>
     	<display:column property="paymentTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column property="paymentDiscountAmount" title="优惠金额" ></display:column>
     	<display:column property="paymentShouldAmount" title="应缴金额"></display:column>

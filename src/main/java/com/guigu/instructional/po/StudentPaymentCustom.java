@@ -10,10 +10,13 @@ public class StudentPaymentCustom extends StudentPayment{
 		super();
 	}
 
-	public StudentPaymentCustom(String staffName, String studentName) {
+	
+
+	public StudentPaymentCustom(String staffName, String studentName, String stateName) {
 		super();
 		this.staffName = staffName;
 		this.studentName = studentName;
+		this.stateName = stateName;
 	}
 
 	public void setStaffName(String staffName) {
@@ -31,5 +34,15 @@ public class StudentPaymentCustom extends StudentPayment{
 	private String staffName;
 	 
 	 private String studentName;
+	 
+	 private String stateName;
+
+	public String getStateName() {
+		return stateName;
+	}
+
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
 	
 }

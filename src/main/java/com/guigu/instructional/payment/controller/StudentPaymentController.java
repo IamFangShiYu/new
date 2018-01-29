@@ -73,8 +73,21 @@ public class StudentPaymentController {
 	   @RequestMapping("list.action")
 	    public String list(StudentPaymentCustom studentPaymentCustom,Model model) throws Exception {
 	        List<StudentPaymentCustom> list =studentPaymentService.findStudentPaymentList(studentPaymentCustom);
-	        model.addAttribute("list", list);
 	        
+	        for (StudentPaymentCustom studentPaymentCustom2 : list) {
+	        	if(studentPaymentCustom2.getPaymentMenthod()==1) {
+	        		studentPaymentCustom2.setStateName("现金");
+		        }
+		        if(studentPaymentCustom2.getPaymentMenthod()==2) {
+		        	studentPaymentCustom2.setStateName("网银");
+		        }
+		        if(studentPaymentCustom2.getPaymentMenthod()==3) {
+		        	studentPaymentCustom2.setStateName("支付宝");
+		        }
+			}
+	       
+	        
+	        model.addAttribute("list", list);        
 	        return "payment/studentpayment/studentpayment_list";
 	    }
 
