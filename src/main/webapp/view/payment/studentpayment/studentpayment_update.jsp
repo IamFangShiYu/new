@@ -41,12 +41,14 @@
             </div>       
         </div>
         <div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">学生编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="studentId" value="${studentPayment.studentId }" class="form-control input-sm" placeholder="请输入学生编号"/>
-                </div>
-            </div>
+             <div class="form-group">
+            	<select class="form-control input-sm" name="roleId" >
+                        	<option>请选择</option>
+                        	<c:forEach items="${studentlist }" var="student">
+                            	<option value="${student.studentId}">${student.studentName} </option>
+                            </c:forEach>
+                        </select>
+        </div>
         </div>
 
     </div>

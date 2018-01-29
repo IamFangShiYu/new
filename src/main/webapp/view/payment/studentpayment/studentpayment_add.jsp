@@ -41,11 +41,12 @@
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">学生编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="studentId" class="form-control input-sm" placeholder="请输入学生编号"/>
-                </div>
-            </div>
+            	<select class="form-control input-sm" name="roleId" >
+                        	<option>选择学生姓名</option>
+                        	<c:forEach items="${studentlist }" var="student">
+                            	<option value="${student.studentId}"  }>${student.studentName}</option>
+                            </c:forEach>
+                        </select>
         </div>
 
     </div>
@@ -161,6 +162,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
             <input  type="reset" class="btn  btn-danger" value="取消"/>
+              <a href="${pageContext.request.contextPath }/payment/studentpayment/list.action" class="btn btn-success">返回上一级</a>
         </div>
     </div>
 </form>

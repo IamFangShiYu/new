@@ -9,13 +9,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.payment.service.StudentPaymentService;
+import com.guigu.instructional.po.RoleInfo;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.po.StudentPaymentCustom;
+import com.guigu.instructional.student.service.StudentInfoService;
 
 @Controller
 @RequestMapping("/payment/studentpayment/")
 public class StudentPaymentController {
+	
+	
+	@Resource(name="studentInfoServiceImpl")
+	private StudentInfoService  studentInfoService;
+	
+	
+	@RequestMapping("loadchange.action")
+    public String StudentInfo(Integer studentId,Model model) {
+		StudentInfo studentInfo =studentInfoService.getStudentInfo(studentId);
+        model.addAttribute("studentInfo", studentInfo);
+        //查询所有的角色
+        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+        model.addAttribute("studentlist", list);
+        return "system/roleinfo/role_change";
+    }
 	
 	
 	@Resource(name="StudentPaymentServiceImpl")
@@ -67,6 +85,16 @@ public class StudentPaymentController {
 	    public String loadUpate(Integer paymentId,Model model) {
 	       StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
 	        model.addAttribute("studentPayment", studentPayment);
+	        
+	        StudentInfo studentInfo =studentInfoService.getStudentInfo(1);
+	        model.addAttribute("studentInfo", studentInfo);
+	        
+	        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+	        model.addAttribute("studentlist", list);
+	        
+	        System.out.println(list);
+	        System.out.println(studentInfo);
+	        
 	        return "payment/studentpayment/studentpayment_update";
 	    }
 	   
