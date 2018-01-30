@@ -2,7 +2,22 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.guigu.instructional.payment.validation.ValidGroupAdd;
+import com.guigu.instructional.payment.validation.ValidGroupUpdate;
 
 public class StudentPayment {
 	
@@ -12,19 +27,29 @@ public class StudentPayment {
 
     private Integer staffId;
 
+    @Length(min=0, max=20,message="{double.payment.amount2}")
     private String paymentSitutation;
 
     private Integer paymentMenthod;
     
-   
+    @NotNull(message="{items.createtime.isNULL}")
+    @Past(message="{items.createtime.past}")
     private Date paymentTime;
-
+  
+    @Min(value=-1,message="{double.payment.amount1}")
+    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
     private Double paymentDiscountAmount;
-
+   
+    @Min(value=-1,message="{double.payment.amount1}")
+    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
     private Double paymentShouldAmount;
-
+   
+    @Min(value=-1,message="{double.payment.amount1}")
+    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
     private Double paymentRealAmount;
-
+   
+    @Min(value=-1,message="{double.payment.amount1}")
+    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
     private Double paymentDebtAmount;
 
     private String paymentRemark;

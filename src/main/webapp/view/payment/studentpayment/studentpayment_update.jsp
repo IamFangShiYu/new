@@ -21,7 +21,14 @@
 		</ul>
 	</div>
 
-
+<c:if test="${allErrors!=null }">
+<br/>
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
+		
+	
 
 
 	<form

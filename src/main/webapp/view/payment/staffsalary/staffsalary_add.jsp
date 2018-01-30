@@ -36,7 +36,8 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffSalaryId" readonly="readonly" class="form-control input-sm" placeholder="默认自动生成"/>
+<input type="text" name="staffSalaryId" value="${staffSalary.staffSalaryId }" readonly="readonly" class="form-control input-sm" placeholder="默认自动生成"/>
+                
                 </div>
             </div>       
         </div>
@@ -57,26 +58,26 @@
     </div>
     <!-- 开始2 -->
 	<div class="row">
-	
-	<div class="col-sm-5">
+    	<div class="col-sm-5">
 				<label class="col-sm-3 control-label">财务员工</label>
 				<div class="form-group">
 					<div class="col-sm-5">
 						<select class="form-control input-sm" name="staStaffId">
 							<option>请选择</option>
 							<c:forEach items="${stastafflist}" var="stasta">
-								<option value="${stasta.staffId}">${stasta.staffName}</option>
+								<option value="${stasta.staffId}"
+								${stasta.staffId==staffSalary.staStaffId?'selected':''}
+								>${stasta.staffName}</option>
 							</c:forEach>
 						</select>
 					</div>
 				</div>
 			</div>
-	
         <div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">本月薪水</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffSalaryTotal" class="form-control input-sm" placeholder="请输入本月薪水"/>
+                	<input type="text" name="staffSalaryTotal"  value="${staffSalary.staffSalaryTotal }" class="form-control input-sm" placeholder="请输入本月薪水"/>
                 </div>
             </div>     
         </div>
@@ -88,7 +89,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">扣除</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffSalaryDeduct" class="form-control input-sm" placeholder="请输入扣除薪水"/>
+                	<input type="text" name="staffSalaryDeduct" value="${staffSalary.staffSalaryDeduct }" class="form-control input-sm" placeholder="请输入扣除薪水"/>
                 </div>
             </div>     
         </div>       
@@ -97,7 +98,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">实际发放</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffSalaryReal" class="form-control input-sm" placeholder="请输入实际发放薪水"/>
+                	<input type="text" name="staffSalaryReal"  value="${staffSalary.staffSalaryReal }"  class="form-control input-sm" placeholder="请输入实际发放薪水"/>
                 </div>
             </div>
         </div>
@@ -111,7 +112,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">是否发放</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffSalaryIsused" class="form-control input-sm" placeholder="请输入是否发放"/>
+                <input type="text" name="staffSalaryIsused" value="${staffSalary.staffSalaryIsused }"   class="form-control input-sm" placeholder="请输入是否发放"/>
                 </div>
             </div>
         </div>
@@ -119,7 +120,8 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">领取日期</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffSalaryTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="领取日期"/>
+                <input type="text" name="staffSalaryTime" value="<fmt:formatDate value="${staffSalary.staffSalaryTime}" type="both" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入领取日期"/>
+                
                 </div>
             </div>
         </div>
@@ -132,7 +134,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="remark"></textarea>
+                	<textarea class="form-control" name="remark"   >${staffSalary.remark }</textarea>
                 </div>
             </div>
         

@@ -3,12 +3,17 @@ package com.guigu.instructional.payment.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.naming.Binding;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.payment.service.StudentPaymentService;
+import com.guigu.instructional.payment.validation.ValidGroupAdd;
 import com.guigu.instructional.po.RoleInfo;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentInfo;
@@ -16,6 +21,7 @@ import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.po.StudentPaymentCustom;
 import com.guigu.instructional.student.service.StudentInfoService;
 import com.guigu.instructional.system.service.StaffInfoService;
+
 
 @Controller
 @RequestMapping("/payment/studentpayment/")
@@ -42,10 +48,29 @@ public class StudentPaymentController {
 	private StudentPaymentService studentPaymentService;
 	
 	   @RequestMapping("add.action")
-	    public String addStudentPayment(StudentPayment studentPayment,Model model) throws Exception {
+	    public String addStudentPayment(@Validated StudentPayment studentPayment,BindingResult bindingResult,Model model) throws Exception {
 	       
-		   System.out.println("523423");
-		   System.out.println(studentPayment);
+		   if(bindingResult.hasErrors()) {
+			   List<ObjectError> allErrors=bindingResult.getAllErrors();
+			   model.addAttribute("allErrors",allErrors);
+			   
+			   List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+		        model.addAttribute("studentlist", list);
+		        
+		        StaffInfo staffInfo=new StaffInfo();
+		        staffInfo.setRoleId(2);
+		        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+		        model.addAttribute("stafflist", list2);
+			   
+			   model.addAttribute("studentPayment", studentPayment);
+			   
+			   return "payment/studentpayment/studentpayment_add";
+			   
+		   }
+		   
+		   
+		  
+		   
 	       boolean result= studentPaymentService.addStudentPayment(studentPayment);
 	       if(result) {
 	           model.addAttribute("info","-AddSuccess");
@@ -107,12 +132,12 @@ public class StudentPaymentController {
 	   @RequestMapping("addload.action")
 	    public String addloadUpate(Integer paymentId,Model model) {
 	      
-	        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
-	        model.addAttribute("studentlist", list);
-	        
+	    
 	        StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
 	        model.addAttribute("studentPayment", studentPayment);
 	        
+	        List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+	        model.addAttribute("studentlist", list);
 	        
 	        StaffInfo staffInfo=new StaffInfo();
 	        staffInfo.setRoleId(2);
