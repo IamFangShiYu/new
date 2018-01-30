@@ -21,6 +21,13 @@
 
 
 
+<c:if test="${allErrors!=null }">
+<br/>
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
+		
 
 <form action="${pageContext.request.contextPath}/payment/staffsalary/add.action" class="form-horizontal">
    	<div class="row">
@@ -116,15 +123,23 @@
                 </div>
             </div>
         </div>
+        
+        
         <div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">领取日期</label>
-                <div class="col-sm-9">
-                <input type="text" name="staffSalaryTime" value="<fmt:formatDate value="${staffSalary.staffSalaryTime}" type="both" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入领取日期"/>
-                
-                </div>
-            </div>
-        </div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">缴费日期</label>
+					<div class="col-sm-5">
+						<input type="text" name="staffSalaryTime"
+							onclick="WdatePicker()" readonly="readonly"
+							class="form-control input-sm" placeholder="请输入发放日期" />
+
+					</div>
+				</div>
+				</div>
+        
+        
+        
     </div>
     <!-- 结束4 -->     
  

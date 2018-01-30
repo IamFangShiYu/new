@@ -85,6 +85,8 @@ public class StudentPaymentController {
 	   @RequestMapping("delete.action")
 	    public String deleteStudentPayment(Integer paymentId,Model model) throws Exception {
 	       
+		   
+		   
 	       boolean result= studentPaymentService.deleteStudentPayment(paymentId);
 	       if(result) {
 	           model.addAttribute("info","-DeleteSuccess");
@@ -97,7 +99,25 @@ public class StudentPaymentController {
 	    }
 	   
 	   @RequestMapping("update.action")
-	    public String updateStudentPayment(StudentPayment studentPayment,Model model) throws Exception {
+	    public String updateStudentPayment(@Validated StudentPayment studentPayment,BindingResult bindingResult,Model model) throws Exception {
+		   
+		   if(bindingResult.hasErrors()) {
+			   List<ObjectError> allErrors=bindingResult.getAllErrors();
+			   model.addAttribute("allErrors",allErrors);
+			   
+			   List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
+		        model.addAttribute("studentlist", list);
+		        
+		        StaffInfo staffInfo=new StaffInfo();
+		        staffInfo.setRoleId(2);
+		        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+		        model.addAttribute("stafflist", list2);
+			   
+			   model.addAttribute("studentPayment", studentPayment);
+
+		        return "payment/studentpayment/studentpayment_update";
+			   
+		   }
 	       
 	       boolean result= studentPaymentService.updateStudentPayment(studentPayment);
 	       if(result) {

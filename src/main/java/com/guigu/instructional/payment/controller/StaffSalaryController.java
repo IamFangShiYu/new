@@ -6,12 +6,16 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.payment.service.StaffSalaryService;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StaffSalary;
 import com.guigu.instructional.po.StaffSalaryCustom;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.system.service.StaffInfoService;
 
@@ -27,8 +31,29 @@ public class StaffSalaryController {
 	
 	
 	 @RequestMapping("add.action")
-	    public String addStaffSalary(StaffSalary staffSalary,Model model) throws Exception {
+	    public String addStaffSalary(@Validated StaffSalary staffSalary,BindingResult bindingResult,Model model) throws Exception {
 	       
+		 
+		  if(bindingResult.hasErrors()) {
+			   List<ObjectError> allErrors=bindingResult.getAllErrors();
+			   model.addAttribute("allErrors",allErrors);
+			   
+			     
+		        List<StaffInfo> list3 =staffInfoService.getStaffInfoList(null);
+		        model.addAttribute("stafflist", list3);
+		        
+		        StaffInfo staffInfo=new StaffInfo();
+		        staffInfo.setRoleId(2);
+		        
+		        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+		        model.addAttribute("stastafflist", list2);
+		        
+		        model.addAttribute("staffSalary", staffSalary);
+		        return "payment/staffsalary/staffsalary_add";
+			   
+		   }
+		 
+		 
 	       boolean result= staffSalaryService.addStaffSalary(staffSalary);
 	       if(result) {
 	           model.addAttribute("info","-AddSuccess");
@@ -55,7 +80,26 @@ public class StaffSalaryController {
 	    }
 	   
 	   @RequestMapping("update.action")
-	    public String updateStaffSalary(StaffSalary staffSalary,Model model) throws Exception {
+	    public String updateStaffSalary(@Validated StaffSalary staffSalary,BindingResult bindingResult,Model model) throws Exception {
+		   
+			  if(bindingResult.hasErrors()) {
+				  List<ObjectError> allErrors=bindingResult.getAllErrors();
+				   model.addAttribute("allErrors",allErrors);
+				   
+				     
+			        List<StaffInfo> list3 =staffInfoService.getStaffInfoList(null);
+			        model.addAttribute("stafflist", list3);
+			        
+			        StaffInfo staffInfo=new StaffInfo();
+			        staffInfo.setRoleId(2);
+			        
+			        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+			        model.addAttribute("stastafflist", list2);
+			        
+			        model.addAttribute("staffSalary", staffSalary);
+			        return "payment/staffsalary/staffsalary_update";
+				   
+			   }
 	       
 	       boolean result= staffSalaryService.updateStaffSalary(staffSalary);
 	       if(result) {

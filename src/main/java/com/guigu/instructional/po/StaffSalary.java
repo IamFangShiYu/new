@@ -2,21 +2,41 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+
 public class StaffSalary {
+	
+
     private Integer staffSalaryId;
 
+    @NotNull(message="{staffId.isNULL}")
     private Integer staffId;
 
+    @NotNull(message="{staStaffId.isNULL}")
     private Integer staStaffId;
 
+    @Min(value=0,message="{benyue.gongzi.dayuling}")
+    @Digits(integer=10, fraction=4,message="{dui.gongzi.changdu.xianzhi}")
     private Double staffSalaryTotal;
 
+    @Min(value=0,message="{kouchu.gongzi.dayuling}")
+    @Digits(integer=10, fraction=4,message="{kouchu.gongzi.changdu.xianzhi}")
     private Double staffSalaryDeduct;
 
+    @Digits(integer=10, fraction=4,message="{real.gongzi.changdu.xianzhi}")
+    @Min(value=0,message="{real.gongzi.dayuling}")
     private Double staffSalaryReal;
 
+    
     private String staffSalaryIsused;
 
+    @Past(message="{all.time.past}")
     private Date staffSalaryTime;
 
     private String remark;

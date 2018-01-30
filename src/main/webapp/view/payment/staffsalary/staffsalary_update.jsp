@@ -21,7 +21,14 @@
 </div>
 
 
-
+<c:if test="${allErrors!=null }">
+<br/>
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
+		
+	
 
 <form action="${pageContext.request.contextPath}/payment/staffsalary/update.action" class="form-horizontal">
    	<div class="row">

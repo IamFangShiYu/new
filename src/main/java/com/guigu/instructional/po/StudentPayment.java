@@ -21,35 +21,38 @@ import com.guigu.instructional.payment.validation.ValidGroupUpdate;
 
 public class StudentPayment {
 	
+	
     private Integer paymentId;
 
+	@NotNull(message="{studentId.isNULL}")
     private Integer studentId;
 
+	@NotNull(message="{staffId.isNULL}")
     private Integer staffId;
 
-    @Length(min=0, max=20,message="{double.payment.amount2}")
+    @Length(min=0, max=20,message="{changdu.dayu.ershiwei}")
     private String paymentSitutation;
 
     private Integer paymentMenthod;
     
-    @NotNull(message="{items.createtime.isNULL}")
-    @Past(message="{items.createtime.past}")
+    @NotNull(message="{all.time.isNULL}")
+    @Past(message="{all.time.past}")
     private Date paymentTime;
   
-    @Min(value=-1,message="{double.payment.amount1}")
-    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
+    @Min(value=0,message="{shuru.jine.dayuling}")
+    @Digits(integer=10, fraction=4,message="{dui.jine.changdu.xianzhi}")
     private Double paymentDiscountAmount;
    
-    @Min(value=-1,message="{double.payment.amount1}")
-    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
+    @Min(value=0,message="{shuru.jine.dayuling}")
+    @Digits(integer=10, fraction=4,message="{dui.jine.changdu.xianzhi}")
     private Double paymentShouldAmount;
    
-    @Min(value=-1,message="{double.payment.amount1}")
-    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
+    @Min(value=0,message="{shuru.jine.dayuling}")
+    @Digits(integer=10, fraction=4,message="{dui.jine.changdu.xianzhi}")
     private Double paymentRealAmount;
    
-    @Min(value=-1,message="{double.payment.amount1}")
-    @Digits(integer=10, fraction=4,message="{double.payment.amount}")
+    @Min(value=0,message="{shuru.jine.dayuling}")
+    @Digits(integer=10, fraction=4,message="{dui.jine.changdu.xianzhi}")
     private Double paymentDebtAmount;
 
     private String paymentRemark;
