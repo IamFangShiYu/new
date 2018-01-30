@@ -32,47 +32,12 @@
      <a href="${pageContext.request.contextPath }/downdown/down.action" class="btn btn-success">下载SQL语句</a>
      <a href="${pageContext.request.contextPath }/downdown/down1.action" class="btn btn-success">下载表结构关系图</a>
      <a href="${pageContext.request.contextPath }/downdown/down2.action" class="btn btn-success">下载PDM文件</a>
-     <a class="btn btn-success"   href="datadictionary_showtable.jsp">在线展示表结构</a>
     
     </form>
 </div>
-<div class="row" style="padding:15px; padding-top:0px; ">
-	<table class="table  table-condensed table-striped">
-    	<tr>
-        	<th>编号</th>
-            <th>名称</th>
-            <th>类型</th>
-            <th>描述</th>
-            <th>操作</th>
-        </tr>
-       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>
-            	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>     
-    </table>
-</div>
+
+<img src="/InstructionalManagement/resource/table/table.png" width="100%">
+
 
 </body>
 </html>
