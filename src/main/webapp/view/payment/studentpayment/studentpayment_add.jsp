@@ -44,7 +44,7 @@
 						<select class="form-control input-sm" name="studentId">
 							<option>请选择</option>
 							<c:forEach items="${studentlist}" var="stu">
-								<option value="${stu.studentId}" }>${stu.studentName}</option>
+								<option value="${stu.studentId}" >${stu.studentName}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -55,13 +55,18 @@
     <!-- 开始2 -->
 	<div class="row">
     	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">经办人编号</label>
-                <div class="col-sm-5">
-                	<input type="text" name="staffId" class="form-control input-sm" placeholder="请输入经办人编号"/>
-                </div>
-            </div>       
-        </div>
+				<label class="col-sm-3 control-label">经办人</label>
+				<div class="form-group">
+					<div class="col-sm-5">
+						<select class="form-control input-sm" name="staffId">
+							<option>请选择</option>
+							<c:forEach items="${stafflist}" var="sta">
+								<option value="${sta.staffId}">${sta.staffName}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+			</div>
         <div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">缴费情况</label>

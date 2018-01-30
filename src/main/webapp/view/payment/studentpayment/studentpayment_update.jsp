@@ -67,12 +67,15 @@
 		<!-- 开始2 -->
 		<div class="row">
 			<div class="col-sm-5">
+				<label class="col-sm-3 control-label">经办人</label>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">经办人编号</label>
 					<div class="col-sm-5">
-						<input type="text" name="staffId"
-							value="${studentPayment.staffId }" class="form-control input-sm"
-							placeholder="请输入经办人编号" />
+						<select class="form-control input-sm" name="staffId">
+							<option>请选择</option>
+							<c:forEach items="${stafflist}" var="sta">
+								<option value="${sta.staffId}"   ${sta.staffId==studentPayment.staffId?'selected':''}   >${sta.staffName}</option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 			</div>

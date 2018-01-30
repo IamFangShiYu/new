@@ -42,7 +42,10 @@
     	<input type="text"  id="keyword"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/payment/staffsalary/staffsalary_add.jsp'"/>
+    
+    <a href="${pageContext.request.contextPath }/payment/staffsalary/addload.action" > 
+    <input type="button"   class="btn btn-success"   value="添加" />
+    </a> 
  </form>
 </div>
 

@@ -32,7 +32,6 @@ public class StudentPaymentController {
     public String StudentInfo(Integer studentId,Model model) {
 		StudentInfo studentInfo =studentInfoService.getStudentInfo(studentId);
         model.addAttribute("studentInfo", studentInfo);
-        //��ѯ���еĽ�ɫ
         List<StudentInfo> list =studentInfoService.getStudentInfoList(null);
         model.addAttribute("studentlist", list);
         return "system/roleinfo/role_change";
@@ -95,8 +94,12 @@ public class StudentPaymentController {
 	        StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
 	        model.addAttribute("studentPayment", studentPayment);
 	        
-//	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(null);
-//	        model.addAttribute("stafflist", list2);
+	        StaffInfo staffInfo=new StaffInfo();
+	        staffInfo.setRoleId(2);
+	        
+	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+	        model.addAttribute("stafflist", list2);
+	
 	        
 	        return "payment/studentpayment/studentpayment_update";
 	    }
@@ -110,9 +113,12 @@ public class StudentPaymentController {
 	        StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
 	        model.addAttribute("studentPayment", studentPayment);
 	        
-//	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(null);
-//	        model.addAttribute("stafflist", list2);
-	       
+	        
+	        StaffInfo staffInfo=new StaffInfo();
+	        staffInfo.setRoleId(2);
+	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+	        model.addAttribute("stafflist", list2);
+	    
 	        return "payment/studentpayment/studentpayment_add";
 	    }
 	   

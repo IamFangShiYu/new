@@ -2,7 +2,10 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+
 public class StudentPayment {
+	
     private Integer paymentId;
 
     private Integer studentId;
@@ -12,7 +15,8 @@ public class StudentPayment {
     private String paymentSitutation;
 
     private Integer paymentMenthod;
-
+    
+   
     private Date paymentTime;
 
     private Double paymentDiscountAmount;

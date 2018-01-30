@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,26 +42,40 @@
                 </div>
             </div>       
         </div>
-        <div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">领取人编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="staffId"  value="${staffSalary.staffId }"  class="form-control input-sm" placeholder="领取人编号"/>
-                </div>
-            </div>
-        </div>
+           <div class="col-sm-5">
+				<label class="col-sm-3 control-label">领取人</label>
+				<div class="form-group">
+					<div class="col-sm-5">
+						<select class="form-control input-sm" name="staffId">
+							<option>请选择</option>
+							<c:forEach items="${stafflist}" var="sta">
+								<option value="${sta.staffId}" 
+								${sta.staffId==staffSalary.staffId?'selected':''}
+								>${sta.staffName}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+			</div>
 
     </div>
     <!-- 开始2 -->
 	<div class="row">
     	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">财务员工编号</label>
-                <div class="col-sm-5">
-                	<input type="text" name="staStaffId"  value="${staffSalary.staStaffId }"  class="form-control input-sm" placeholder="请输入财务员工编号"/>
-                </div>
-            </div>       
-        </div>
+				<label class="col-sm-3 control-label">财务员工</label>
+				<div class="form-group">
+					<div class="col-sm-5">
+						<select class="form-control input-sm" name="staStaffId">
+							<option>请选择</option>
+							<c:forEach items="${stastafflist}" var="stasta">
+								<option value="${stasta.staffId}"
+								${stasta.staffId==staffSalary.staStaffId?'selected':''}
+								>${stasta.staffName}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+			</div>
         <div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">本月薪水</label>

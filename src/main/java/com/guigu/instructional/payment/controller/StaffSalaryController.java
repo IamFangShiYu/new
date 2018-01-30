@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.payment.service.StaffSalaryService;
+import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StaffSalary;
 import com.guigu.instructional.po.StaffSalaryCustom;
 import com.guigu.instructional.po.StudentPayment;
+import com.guigu.instructional.system.service.StaffInfoService;
 
 @Controller
 @RequestMapping("/payment/staffsalary/")
@@ -19,6 +21,9 @@ public class StaffSalaryController {
 
 	@Resource(name="StaffSalaryServiceImpl")
 	private StaffSalaryService staffSalaryService;
+	
+	@Resource(name="staffInfoServiceImpl")
+	private StaffInfoService staffInfoService;
 	
 	
 	 @RequestMapping("add.action")
@@ -67,8 +72,34 @@ public class StaffSalaryController {
 	    public String loadUpate(Integer staffSalaryId,Model model) {
 	       StaffSalary staffSalary = staffSalaryService.getStaffSalary(staffSalaryId);
 	        model.addAttribute("staffSalary", staffSalary);
+	           
+	        List<StaffInfo> list3 =staffInfoService.getStaffInfoList(null);
+	        model.addAttribute("stafflist", list3);
+	        
+	        StaffInfo staffInfo=new StaffInfo();
+	        staffInfo.setRoleId(2);
+	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+	        model.addAttribute("stastafflist", list2);
+	        
 	        return "payment/staffsalary/staffsalary_update";
 	    }
+	   
+	   @RequestMapping("addload.action")
+	    public String addloadUpate(Integer staffSalaryId,Model model) {
+	       StaffSalary staffSalary = staffSalaryService.getStaffSalary(staffSalaryId);
+	        model.addAttribute("staffSalary", staffSalary);
+	           
+	        List<StaffInfo> list3 =staffInfoService.getStaffInfoList(null);
+	        model.addAttribute("stafflist", list3);
+	        
+	        StaffInfo staffInfo=new StaffInfo();
+	        staffInfo.setRoleId(2);
+	        List<StaffInfo> list2 =staffInfoService.getStaffInfoList(staffInfo);
+	        model.addAttribute("stastafflist", list2);
+	        
+	        return "payment/staffsalary/staffsalary_add";
+	    }
+	   
 	   
 	   @RequestMapping("list.action")
 	    public String list(StaffSalaryCustom staffSalaryCustom,Model model) throws Exception {

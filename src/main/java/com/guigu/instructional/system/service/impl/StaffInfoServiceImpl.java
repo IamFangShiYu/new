@@ -69,12 +69,14 @@ public class StaffInfoServiceImpl implements StaffInfoService {
             }
             if(staffInfo.getStaffMobilePhone()!=null) {
                 criteria.andStaffMobilePhoneEqualTo(staffInfo.getStaffMobilePhone());
+            } if(staffInfo.getRoleId()!=null) {
+                criteria.andRoleIdEqualTo(staffInfo.getRoleId());
             }
             
         }
-//        else{
-//        	return staffInfoMapper.selectByExample(null);
-//        		}
+        else{
+        	return staffInfoMapper.selectByExample(null);
+        		}
         criteria.andStaffStateEqualTo("1");
        
         
