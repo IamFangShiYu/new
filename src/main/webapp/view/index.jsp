@@ -135,7 +135,7 @@
 									class="icon-double-angle-right"></i> 权限管理	</a></li> 
                          <li><a href="view/system/anthotychange/anthorty_changelist.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 权限变更</a></li>  
-   						 <li><a href="${pageContext.request.contextPath }/view/system/datadictionary/datadictionary_list.jsp" target="mainframe"> <i
+   						 <li><a href="${pageContext.request.contextPath }/system/datadictionary/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 数据字典</a></li>                                                    
 						</ul>
 				</li>

@@ -26,7 +26,7 @@
     <div class="col-sm-3">
     	<input type="text"  class="form-control input-sm"/>
     </div>
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <a  class="btn btn-danger"  href="${pageContext.request.contextPath}/system/datadictionary/list.action"   >查询</a>
     <a  class="btn btn-success"  href="datadictionary_add.html"   >添加</a>
  
      <a href="${pageContext.request.contextPath }/downdown/down.action" class="btn btn-success">下载SQL语句</a>

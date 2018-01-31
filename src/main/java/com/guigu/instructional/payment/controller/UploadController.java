@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +18,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.guigu.instructional.po.DataDictionary;
 
 @RequestMapping("/downdown/")
 @Controller
@@ -79,6 +83,12 @@ while((len = bis.read())!=-1){
 oout.close();
 }
 
+
+	@RequestMapping("show1.action")
+	public String list( Model model) {
+		return "system/datadictionary/datadictionary_showtable";
+	}
+	
 
 }
 	

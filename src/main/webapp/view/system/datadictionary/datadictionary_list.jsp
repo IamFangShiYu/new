@@ -21,58 +21,55 @@
     </ul>
 </div>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/system/datadictionary/list.action" method="post">
 	<div class="col-sm-2">类型:</div>
     <div class="col-sm-3">
-    	<input type="text"  class="form-control input-sm"/>
+    	<input type="text" name="dataId" class="form-control input-sm"/>
     </div>
-    <input type="button"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="datadictionary_add.html"   >添加</a>
- 
+    <input type="submit"   class="btn btn-danger"   value="查询"/>
+    
+     <a href="${pageContext.request.contextPath }/system/datadictionary/addload.action" > 
+    <input type="button"   class="btn btn-success"   value="添加" />
+    </a> 
+    
      <a href="${pageContext.request.contextPath }/downdown/down.action" class="btn btn-success">下载SQL语句</a>
      <a href="${pageContext.request.contextPath }/downdown/down1.action" class="btn btn-success">下载表结构关系图</a>
      <a href="${pageContext.request.contextPath }/downdown/down2.action" class="btn btn-success">下载PDM文件</a>
-     <a class="btn btn-success"   href="datadictionary_showtable.jsp">在线展示表结构</a>
+     <a class="btn btn-success"   href="${pageContext.request.contextPath }/downdown/show1.action">在线展示表结构</a>
     
     </form>
 </div>
-<div class="row" style="padding:15px; padding-top:0px; ">
-	<table class="table  table-condensed table-striped">
-    	<tr>
-        	<th>编号</th>
-            <th>名称</th>
-            <th>类型</th>
-            <th>描述</th>
-            <th>操作</th>
-        </tr>
-       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>
-            	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>       	<tr>
-        	<td>1001</td>
-            <td>良好</td>
-            <td>预期反应</td>
-            <td>描述</td>
-            <th><a href="datadictionary_update.html">修改</a> <a href="">删除</a></th>
-        </tr>     
-    </table>
+
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">数据字典信息-${info}</p>
+	</div>	
 </div>
+
+
+
+<div class="row" style="padding:15px; padding-top:0px; " align="right">
+	<table class="table  table-condensed table-striped">
+    </table>
+    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/payment/staffsalary/list.action">
+
+    	<display:column property="dataId" title="数据编号"></display:column>
+    	<display:column property="dataContent" title="数据内容"></display:column>
+    	<display:column property="dataType" title="数据类型"></display:column>
+    	<display:column property="dataDesc" title="描述"></display:column>
+      	
+    	<display:column href="${pageContext.request.contextPath }/system/datadictionary/updateload.action" paramId="dataId" paramProperty="dataId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/system/datadictionary/delete.action" paramId="dataId" paramProperty="dataId" value="删除" title="删除"></display:column>
+    	
+    </display:table>
+    
+    
+</div>
+
 
 </body>
 </html>
