@@ -29,7 +29,7 @@
 		</c:if>
 		
 
-<form action="${pageContext.request.contextPath}/system/datadictionary/add.action" class="form-horizontal">
+<form action="${pageContext.request.contextPath}/payment/staffsalary/add.action" class="form-horizontal">
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
